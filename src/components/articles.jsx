@@ -14,7 +14,7 @@ function Articles() {
   return (
     <section className="main-display">
       <h1>Articles</h1>
-      {articles.map((article) => {
+      {articles?.articles?.map((article) => {
         return (
           <li key={article.article_id}>
             <h2> {article.title} </h2>
