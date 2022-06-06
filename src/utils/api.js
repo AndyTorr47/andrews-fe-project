@@ -15,3 +15,11 @@ export const getSingleArticles = (article_id) => {
     return response.data;
   });
 };
+
+export const upVoteAnArticle = (article_id) => {
+  return newApi
+    .patch(`/articles/${article_id}`, { inc_votes: 1 })
+    .then((response) => {
+      return response.data;
+    });
+};
