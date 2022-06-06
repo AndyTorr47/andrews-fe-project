@@ -1,8 +1,9 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
-import Articles from "./components/articles";
-import Topic from "./components/topics";
-import Nav from "./components/nav";
+import Articles from "./components/Articles";
+import Topic from "./components/Topics";
+import Nav from "./components/Nav";
+import SingleArticle from "./components/SingleArticle";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Articles />}></Route>
         <Route path="/topics/:topic" element={<Topic />}></Route>
+        <Route path="/articles/:article_id" element={<SingleArticle />}></Route>
       </Routes>
     </div>
   );

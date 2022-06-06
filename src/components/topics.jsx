@@ -5,8 +5,7 @@ import { useParams } from "react-router-dom";
 function Topic() {
   const { topic } = useParams();
   console.log(topic, " << ");
-  const [cookingTopic, setCookingTopic] = useState([]);
-  //use effect
+  const [anyTopic, setAnyTopic] = useState([]); //use effect
   useEffect(() => {
     getArticles().then((articles) => {
       const specificTopicArticles = articles?.articles?.filter((article) => {
@@ -14,13 +13,13 @@ function Topic() {
           return article;
         }
       });
-      setCookingTopic(specificTopicArticles);
+      setAnyTopic(specificTopicArticles);
     });
-  }, []);
+  }, [topic]);
 
   return (
     <main className="main-display">
-      {cookingTopic.map((topic) => {
+      {anyTopic.map((topic) => {
         console.log(topic);
         return (
           <div className="card-box">
