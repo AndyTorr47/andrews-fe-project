@@ -29,6 +29,17 @@
   box-shadow: 1px 1px 7px 1px;
 }
 
+.comments-box {
+  margin-right: 30px;
+}
+
+.comments {
+  list-style-type: none;
+  border: 1px solid;
+  margin: 4px;
+  padding: 4px;
+}
+
 @media only screen and (min-width: 768px) {
   .App {
     display: grid;
@@ -38,6 +49,15 @@
       "top top"
       "sidebar left"
       "main main";
+    justify-items: center;
+  }
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+  }
+  .nav-items > li {
+    display: flex;
   }
 
   .App-header {
@@ -50,5 +70,12 @@
 
   .sortby-box {
     grid-area: left;
+  }
+
+  .main-display {
+    list-style-type: none;
+  }
+  .topic {
+    text-shadow: 1px 1px 1px blue;
   }
 }

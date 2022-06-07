@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getSingleArticles, upVoteAnArticle } from "../utils/api";
+import Comments from "./Comments";
 
 function SingleArticle() {
   const { article_id } = useParams();
@@ -18,8 +19,8 @@ function SingleArticle() {
   }, [article_id]);
 
   //vote
-  const handleClick = (e) => {
-    if (hasVoted) return;
+  const handleVote = (e) => {
+    if (!hasVoted) return;
     else {
       e.preventDefault();
       setUpVote((currVotes) => currVotes + 1);
@@ -44,15 +45,39 @@ function SingleArticle() {
           <h3> Topic: {singleArticle.topic} </h3>
           <h3>
             Votes: {singleArticle.votes + upVote}
-            <button onClick={handleClick}> vote </button>
+            <button onClick={handleVote}> vote </button>
           </h3>
           <p> {error} </p>
           <h3> Votes: {singleArticle.votes} </h3>
           <h3> comments: {singleArticle.comment_count} </h3>
+          <section>
+            <DisplayComments>
+              <Comments />
+            </DisplayComments>
+          </section>
           <p> created at: {singleArticle.created_at} </p>
         </li>
       </div>
     </main>
+  );
+}
+
+//comments
+
+function DisplayComments({ children }) {
+  const [showComments, setShowComments] = useState(false);
+  console.log(children);
+
+  const toggleShow = () => {
+    setShowComments((currState) => !currState);
+  };
+
+  return (
+    <div>
+      {showComments ? children : null}
+      {console?.log(showComments)}
+      <button onClick={toggleShow}> Show Comments </button>
+    </div>
   );
 }
 
