@@ -30,3 +30,15 @@ export const displayCommentsOfSelectedArticle = (article_id) => {
     return response.data;
   });
 };
+
+export const postCommentToExistingArticle = (article_id, username, body) => {
+  //article_id, username, comment
+  return newApi
+    .post(`/articles/${article_id}/comments`, {
+      username: username,
+      body: body,
+    })
+    .then((response) => {
+      return response.data;
+    });
+};

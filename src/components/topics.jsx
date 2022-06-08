@@ -15,7 +15,7 @@ function Topic() {
       });
       setAnyTopic(specificTopicArticles);
     });
-  }, [topic]);
+  }, []);
 
   return (
     <main className="main-display">
