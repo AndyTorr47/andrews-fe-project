@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getSingleArticles, upVoteAnArticle } from "../utils/api";
 import Comments from "./Comments";
+import DisplayComments from "./DisplayComments";
+import PostComment from "./PostComments";
 
 function SingleArticle() {
   const { article_id } = useParams();
@@ -16,7 +18,7 @@ function SingleArticle() {
       console.log(article);
       setSingleArticle(article);
     });
-  }, [article_id]);
+  }, []);
 
   //vote
   const handleVote = (e) => {
@@ -40,22 +42,31 @@ function SingleArticle() {
     <main className="main-display">
       <div className="card-box">
         <li className="card">
-          <h2> Title: {singleArticle.title} </h2>
-          <h3> Author: {singleArticle.author} </h3>
-          <h3> Topic: {singleArticle.topic} </h3>
+          <h2> Title: {singleArticle?.article?.title} </h2>
+          <h3> Author: {singleArticle?.article?.author} </h3>
+          <h3> Topic: {singleArticle?.article?.topic} </h3>
           <h3>
-            Votes: {singleArticle.votes + upVote}
+            Votes: {singleArticle?.article?.votes + upVote}
             <button onClick={handleVote}> vote </button>
           </h3>
           <p> {error} </p>
-          <h3> Votes: {singleArticle.votes} </h3>
-          <h3> comments: {singleArticle.comment_count} </h3>
+          <h3> Votes: {singleArticle?.article?.votes} </h3>
+          <h3> comments: {singleArticle?.article?.comment_count} </h3>
           <section>
-            <DisplayComments>
-              <Comments />
-            </DisplayComments>
+            <div className="comment-buttons">
+              <>
+                <DisplayCommentForm>
+                  <PostComment />
+                </DisplayCommentForm>
+              </>
+              <section>
+                <DisplayComments>
+                  <Comments />
+                </DisplayComments>
+              </section>
+            </div>
           </section>
-          <p> created at: {singleArticle.created_at} </p>
+          <p> created at: {singleArticle?.article?.created_at} </p>
         </li>
       </div>
     </main>
@@ -64,19 +75,17 @@ function SingleArticle() {
 
 //comments
 
-function DisplayComments({ children }) {
-  const [showComments, setShowComments] = useState(false);
-  console.log(children);
+function DisplayCommentForm({ children }) {
+  const [form, setForm] = useState(false);
 
-  const toggleShow = () => {
-    setShowComments((currState) => !currState);
+  const toggleForm = () => {
+    setForm((currState) => !currState);
   };
 
   return (
     <div>
-      {showComments ? children : null}
-      {console?.log(showComments)}
-      <button onClick={toggleShow}> Show Comments </button>
+      {form ? children : null}
+      <button onClick={toggleForm}> add comment </button>
     </div>
   );
 }
