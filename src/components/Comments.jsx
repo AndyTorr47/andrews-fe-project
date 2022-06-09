@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { displayCommentsOfSelectedArticle } from "../utils/api";
 
-function Comments() {
+function Comments({ setAllComments, allComments }) {
   const { article_id } = useParams();
-  const [allComments, setAllComments] = useState([]);
 
   useEffect(() => {
     displayCommentsOfSelectedArticle(article_id)

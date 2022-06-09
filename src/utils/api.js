@@ -39,6 +39,7 @@ export const postCommentToExistingArticle = (article_id, username, body) => {
       body: body,
     })
     .then((response) => {
+      console.log(response, "<<< response");
       return response.data;
     });
 };

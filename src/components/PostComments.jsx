@@ -2,20 +2,25 @@ import React, { useState } from "react";
 import { postCommentToExistingArticle } from "../utils/api";
 import { useParams } from "react-router-dom";
 
-function PostComment() {
+function PostComment({ setAllComments }) {
   const { article_id } = useParams();
   const [username, setUsername] = useState("");
   const [comment, setComment] = useState("");
+  const [SubmittedMsg, setSubmittedMsg] = useState("");
 
   const handleCommentSubmit = (e) => {
     e.preventDefault();
 
     postCommentToExistingArticle(article_id, username, comment)
-      .then((data) => {
-        console.log(data, "post commment data");
+      .then((response) => {
+        console.log(response, "<< response!!");
+        setAllComments((currComments) => [response, ...currComments]);
+        setComment("");
+
+        setSubmittedMsg(" comment submitted.");
       })
       .catch((err) => {
-        console.log(err, " err");
+        console.log(err, " err0r");
       });
   };
 
@@ -38,10 +43,7 @@ function PostComment() {
       ></input>
       <button> post comment </button>
       <p>
-        <small>
-          {" "}
-          {username} {comment}{" "}
-        </small>
+        <small>{SubmittedMsg}</small>
       </p>
     </form>
   );

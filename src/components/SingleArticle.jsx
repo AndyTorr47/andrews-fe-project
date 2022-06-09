@@ -6,6 +6,7 @@ import DisplayComments from "./DisplayComments";
 import PostComment from "./PostComments";
 
 function SingleArticle() {
+  const [allComments, setAllComments] = useState([]);
   const { article_id } = useParams();
   const [singleArticle, setSingleArticle] = useState({});
 
@@ -56,12 +57,15 @@ function SingleArticle() {
             <div className="comment-buttons">
               <>
                 <DisplayCommentForm>
-                  <PostComment />
+                  <PostComment setAllComments={setAllComments} />
                 </DisplayCommentForm>
               </>
               <section>
                 <DisplayComments>
-                  <Comments />
+                  <Comments
+                    setAllComments={setAllComments}
+                    allComments={allComments}
+                  />
                 </DisplayComments>
               </section>
             </div>
