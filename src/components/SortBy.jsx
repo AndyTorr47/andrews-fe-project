@@ -24,9 +24,6 @@ function SortBy() {
         <option> select sort preference </option>
         <option value="votes"> votes </option>
         <option value="created_at"> ccreated_at </option>
-        {/* <option value='votes'> votes </option>
-                <option value='ASC'> ascending </option>
-                <option value='DESC'> descending </option> */}
       </select>
     </div>
   );
