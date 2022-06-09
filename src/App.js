@@ -5,6 +5,7 @@ import Topic from "./components/Topics";
 import Nav from "./components/Nav";
 import SingleArticle from "./components/SingleArticle";
 import Comments from "./components/Comments";
+import SortBy from "./components/SortBy";
 
 function App() {
   return (
@@ -16,11 +17,12 @@ function App() {
       <form className="search-box">
         <input placeholder="Topics" type="text" />
         <button> search </button>
-        <select className="sortby-box">
+        <SortBy />
+        {/* <select className="sortby-box">
           <option> date </option>
           <option> votes </option>
           <option> comments </option>
-        </select>
+        </select> */}
       </form>
       <Routes>
         <Route path="/" element={<Articles />}></Route>
@@ -30,6 +32,7 @@ function App() {
           path="/articles/:article_id/comments"
           element={<Comments />}
         ></Route>
+        <Route path="/articles/?Sort_By=" element={<SortBy />}></Route>
       </Routes>
     </div>
   );
