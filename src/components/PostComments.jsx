@@ -7,6 +7,7 @@ function PostComment({ setAllComments }) {
   const [username, setUsername] = useState("");
   const [comment, setComment] = useState("");
   const [SubmittedMsg, setSubmittedMsg] = useState("");
+  const [invalidUser, setInvalidUser] = useState("");
 
   const handleCommentSubmit = (e) => {
     e.preventDefault();
@@ -21,7 +22,10 @@ function PostComment({ setAllComments }) {
       })
       .catch((err) => {
         console.log(err, " err0r");
+        setInvalidUser("user invalid, please use existing user");
       });
+    setInvalidUser("");
+    setSubmittedMsg("");
   };
 
   console.log("form");
@@ -43,7 +47,8 @@ function PostComment({ setAllComments }) {
       ></input>
       <button> post comment </button>
       <p>
-        <small>{SubmittedMsg}</small>
+        {SubmittedMsg}
+        {invalidUser}
       </p>
     </form>
   );

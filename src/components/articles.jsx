@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { getArticles } from "../utils/api";
 import { Link } from "react-router-dom";
 import SortBy from "./SortBy";
 
-function Articles() {
-  const [articles, setArticles] = useState([]);
-
+function Articles({ articles, setArticles }) {
   useEffect(() => {
     getArticles().then((ArtilesFromApi) => {
       console.log(ArtilesFromApi, " << articles");
