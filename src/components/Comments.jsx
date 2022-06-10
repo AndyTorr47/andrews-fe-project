@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { displayCommentsOfSelectedArticle } from "../utils/api";
+import DeleteComment from "./DeleteComments";
 
 function Comments({ setAllComments, allComments }) {
   const { article_id } = useParams();
@@ -28,7 +29,14 @@ function Comments({ setAllComments, allComments }) {
             console.log(comment);
             return (
               <li className="comments" key={comment.comment_id}>
-                {comment.body};
+                {comment.body}
+                {comment.author === "KingUser" ? (
+                  <DeleteComment
+                    allComments={allComments}
+                    setAllComments={setAllComments}
+                    comment_id={comment.comment_id}
+                  />
+                ) : null}
               </li>
             );
           })
