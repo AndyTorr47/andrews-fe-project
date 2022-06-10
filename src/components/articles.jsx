@@ -12,12 +12,14 @@ function Articles({ articles, setArticles }) {
   }, []);
 
   return (
-    <section className="main-display">
-      <h1>Articles</h1>
-      {articles?.articles?.map((article) => {
-        return (
-          (<SortBy />),
-          (
+    <div>
+      <h1 className="title"> Andrew's Articles! </h1>
+      <form className="search-box">
+        <SortBy setArticles={setArticles} />
+      </form>
+      <main className="main-display">
+        {articles?.articles?.map((article) => {
+          return (
             <div className="card-box" key={article.article_id}>
               <li className="card">
                 <h2>
@@ -35,10 +37,10 @@ function Articles({ articles, setArticles }) {
                 <p> created at: {article.created_at} </p>
               </li>
             </div>
-          )
-        );
-      })}
-    </section>
+          );
+        })}
+      </main>
+    </div>
   );
 }
 

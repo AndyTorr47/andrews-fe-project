@@ -49,3 +49,9 @@ export const sorteArticlesBy = (sortBy) => {
     return response.data;
   });
 };
+
+export const deleteCommentFromArticle = (comment_id) => {
+  return newApi.delete(`/comments/${comment_id}`).then((response) => {
+    return response.data;
+  });
+};

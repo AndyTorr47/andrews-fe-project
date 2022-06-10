@@ -31,8 +31,10 @@ function PostComment({ setAllComments }) {
   console.log("form");
   return (
     <form onSubmit={handleCommentSubmit}>
+      <p>NOTE: please use username 'KingUser' to be able to post comments</p>
       <label> username </label>
       <input
+        placeholder="KingUser"
         type="text"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
