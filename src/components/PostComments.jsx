@@ -28,7 +28,6 @@ function PostComment({ setAllComments }) {
     setSubmittedMsg("");
   };
 
-  console.log("form");
   return (
     <form onSubmit={handleCommentSubmit}>
       <p>NOTE: please use username 'KingUser' to be able to post comments</p>
@@ -49,8 +48,8 @@ function PostComment({ setAllComments }) {
       ></input>
       <button> post comment </button>
       <p>
-        {SubmittedMsg}
         {invalidUser}
+        {SubmittedMsg}
       </p>
     </form>
   );

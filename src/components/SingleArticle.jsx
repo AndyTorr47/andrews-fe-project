@@ -31,7 +31,7 @@ function SingleArticle() {
 
   //vote
   const handleVote = (e) => {
-    if (!hasVoted) return;
+    if (hasVoted) return;
     else {
       e.preventDefault();
       setUpVote((currVotes) => currVotes + 1);
