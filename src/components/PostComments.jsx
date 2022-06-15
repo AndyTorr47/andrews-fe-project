@@ -6,7 +6,7 @@ function PostComment({ setAllComments }) {
   const { article_id } = useParams();
   const [username, setUsername] = useState("");
   const [comment, setComment] = useState("");
-  const [SubmittedMsg, setSubmittedMsg] = useState("");
+  const [submittedMsg, setSubmittedMsg] = useState("");
   const [invalidUser, setInvalidUser] = useState("");
 
   const handleCommentSubmit = (e) => {
@@ -30,10 +30,13 @@ function PostComment({ setAllComments }) {
 
   return (
     <form onSubmit={handleCommentSubmit}>
-      <p>NOTE: please use username 'KingUser' to be able to post comments</p>
+      <p>
+        NOTE: please use username 'jessjelly', or any other Author to be able to
+        post comments!
+      </p>
       <label> username </label>
       <input
-        placeholder="KingUser"
+        placeholder="jessjelly"
         type="text"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
@@ -49,7 +52,7 @@ function PostComment({ setAllComments }) {
       <button> post comment </button>
       <p>
         {invalidUser}
-        {SubmittedMsg}
+        {submittedMsg}
       </p>
     </form>
   );

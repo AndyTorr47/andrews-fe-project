@@ -22,7 +22,7 @@ function Comments({ setAllComments, allComments }) {
   return (
     <section>
       <ul className="comments-box">
-        {allComments.length === 0 ? (
+        {allComments?.length === 0 ? (
           <p> no comments on this article </p>
         ) : (
           allComments?.comments?.map((comment) => {
@@ -30,7 +30,7 @@ function Comments({ setAllComments, allComments }) {
             return (
               <li className="comments" key={comment.comment_id}>
                 {comment.body}
-                {comment.author === "KingUser" ? (
+                {comment.author === "jessjelly" ? (
                   <DeleteComment
                     allComments={allComments}
                     setAllComments={setAllComments}

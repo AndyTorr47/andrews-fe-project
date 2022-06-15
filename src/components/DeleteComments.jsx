@@ -13,7 +13,7 @@ function DeleteComment({ setAllComments, comment_id }) {
         setDeletedMsg("comment deleted.");
 
         setAllComments((currComments) => {
-          return currComments.filter((comment) => {
+          return currComments?.currComments?.filter((comment) => {
             return comment.comment_id !== comment_id;
           });
         });
