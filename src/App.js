@@ -1,6 +1,6 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
-import Articles from "./components/Articles";
+import Articles from "./components/articles";
 import Topic from "./components/Topics";
 import SingleArticle from "./components/SingleArticle";
 import Comments from "./components/Comments";

@@ -30,10 +30,7 @@ function PostComment({ setAllComments }) {
 
   return (
     <form onSubmit={handleCommentSubmit}>
-      <p>
-        NOTE: please use username 'jessjelly', or any other Author to be able to
-        post comments!
-      </p>
+      <p>NOTE: please use username 'jessjelly' to post comments!</p>
       <label> username </label>
       <input
         placeholder="jessjelly"
