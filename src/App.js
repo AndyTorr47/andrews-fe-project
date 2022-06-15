@@ -1,7 +1,7 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Articles from "./components/articles";
-import Topic from "./components/Topics";
+import Topic from "./components/topics";
 import SingleArticle from "./components/SingleArticle";
 import Comments from "./components/Comments";
 import { useState } from "react";
