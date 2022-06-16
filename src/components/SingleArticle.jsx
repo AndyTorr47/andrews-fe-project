@@ -55,6 +55,7 @@ function SingleArticle() {
         <div className="card-box">
           <li className="card">
             <h2> Title: {singleArticle?.article?.title} </h2>
+            <h3>Article: {singleArticle?.article?.body}</h3>
             <p> created at: {singleArticle?.article?.created_at} </p>
             <h3> Author: {singleArticle?.article?.author} </h3>
             <h3> Topic: {singleArticle?.article?.topic} </h3>
