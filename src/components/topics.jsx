@@ -28,7 +28,7 @@ function Topic() {
               <h3> Title: {topic.title} </h3>
               <h3> Author: {topic.author}</h3>
               <h3> vote: {topic.votes}</h3>
-              <h3> commetns: {topic.comment_count} </h3>
+              <h3> comments: {topic.comment_count} </h3>
               <p> created at: {topic.created_at}</p>
             </li>
           </div>
