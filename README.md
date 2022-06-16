@@ -15,7 +15,7 @@ Prerequisite: Node (version 16 or above)
 
 First, clone the repo and head into the root directory:
 
-git clone https://github.com/AndyTorr47/andrews-fe-project
+git clone https://github.com/AndyTorr47/andrews-fe-project.git
 
 cd fe-nc-news
 
